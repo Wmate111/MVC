@@ -1,0 +1,91 @@
+﻿@model IEnumerable<katalogfilmowMVC.Models.Film>
+
+@{
+    ViewData["Title"] = "Lista filmów";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Lista filmów</h1>
+    <a asp-action="Create" class="btn btn-primary">Dodaj nowy film</a>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-dark text-white">
+        Wyszukiwanie filmów
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Index" method="get" class="row g-3">
+            <div class="col-md-5">
+                <label for="searchString" class="form-label">Tytuł lub reżyser</label>
+                <input type="text"
+                       name="searchString"
+                       id="searchString"
+                       value="@ViewData["CurrentSearch"]"
+                       class="form-control"
+                       placeholder="np. Garfield albo Nolan" />
+            </div>
+
+            <div class="col-md-4">
+                <label for="gatunek" class="form-label">Gatunek</label>
+                <input type="text"
+                       name="gatunek"
+                       id="gatunek"
+                       value="@ViewData["CurrentGatunek"]"
+                       class="form-control"
+                       placeholder="np. Komedia" />
+            </div>
+
+            <div class="col-md-3 d-flex align-items-end">
+                <div>
+                    <button type="submit" class="btn btn-success">Szukaj</button>
+                    <a asp-action="Index" class="btn btn-secondary">Wyczyść</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table table-striped table-bordered align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Tytul)</th>
+            <th>@Html.DisplayNameFor(model => model.Rezyser)</th>
+            <th>@Html.DisplayNameFor(model => model.Gatunek)</th>
+            <th>@Html.DisplayNameFor(model => model.RokProdukcji)</th>
+            <th>@Html.DisplayNameFor(model => model.Ocena)</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Tytul)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Rezyser)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Gatunek)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RokProdukcji)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ocena)/10</td>
+                    <td>
+                        <div class="d-flex gap-1 flex-wrap">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Szczegóły</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edytuj</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Usuń</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center text-muted">
+                    Brak filmów spełniających podane kryteria.
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

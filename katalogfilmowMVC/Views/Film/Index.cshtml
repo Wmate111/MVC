@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Strona główna";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Katalog Filmów MVC</h1>
+    <p class="lead">
+        Aplikacja do zarządzania prostą kolekcją filmów.
+    </p>
+
+    <a asp-controller="Films" asp-action="Index" class="btn btn-primary btn-lg mt-3">
+        Przejdź do katalogu filmów
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Dodawanie filmów</h5>
+                <p class="card-text">
+                    Możliwość dodawania filmów z tytułem, reżyserem, gatunkiem, rokiem produkcji, oceną i opisem.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Edycja i usuwanie</h5>
+                <p class="card-text">
+                    Możliwość edytowania zapisanych filmów oraz usuwania ich z katalogu.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Wyszukiwanie</h5>
+                <p class="card-text">
+                    Proste wyszukiwanie filmów po tytule, reżyserze i gatunku.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

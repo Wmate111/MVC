@@ -1,0 +1,65 @@
+﻿@model katalogfilmowMVC.Models.Film
+
+@{
+    ViewData["Title"] = "Usuń film";
+}
+
+<h1>Usuń film</h1>
+
+<div class="alert alert-danger mt-4">
+    <h4>Czy na pewno chcesz usunąć ten film?</h4>
+    <p class="mb-0">Tej operacji nie można cofnąć.</p>
+</div>
+
+<div class="card">
+    <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">@Model.Tytul</h4>
+    </div>
+
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Tytul)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Tytul)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Rezyser)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Rezyser)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Gatunek)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Gatunek)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.RokProdukcji)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.RokProdukcji)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Ocena)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Ocena)/10
+            </dd>
+        </dl>
+    </div>
+
+    <div class="card-footer">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Usuń</button>
+            <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+        </form>
+    </div>
+</div>

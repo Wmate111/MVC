@@ -1,0 +1,64 @@
+﻿@model katalogfilmowMVC.Models.Film
+
+@{
+    ViewData["Title"] = "Edytuj film";
+}
+
+<h1>Edytuj film</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="Tytul" class="form-label"></label>
+                <input asp-for="Tytul" class="form-control" />
+                <span asp-validation-for="Tytul" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Rezyser" class="form-label"></label>
+                <input asp-for="Rezyser" class="form-control" />
+                <span asp-validation-for="Rezyser" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Gatunek" class="form-label"></label>
+                <input asp-for="Gatunek" class="form-control" />
+                <span asp-validation-for="Gatunek" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="RokProdukcji" class="form-label"></label>
+                <input asp-for="RokProdukcji" class="form-control" />
+                <span asp-validation-for="RokProdukcji" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Ocena" class="form-label"></label>
+                <input asp-for="Ocena" class="form-control" />
+                <span asp-validation-for="Ocena" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Opis" class="form-label"></label>
+                <textarea asp-for="Opis" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+            <a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
