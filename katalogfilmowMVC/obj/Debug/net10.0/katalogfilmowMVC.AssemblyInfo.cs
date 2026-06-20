@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("katalogfilmowMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89243a4230a59ae680fb9af73615e28d0976410a")]
 [assembly: System.Reflection.AssemblyProductAttribute("katalogfilmowMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("katalogfilmowMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
